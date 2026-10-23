@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GBS Corner Shop - Sign up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-card">
+    <h2>Create Your Account</h2>
+    <form id="registrationForm" method="POST" novalidate>
+
+      <div class="form-group" id="groupFullName">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="e.g., Jane Doe">
+        <div class="error-message">Please enter your full name.</div>
+      </div>
+
+      <div class="form-group" id="groupEmail">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="name@example.com">
+        <div class="error-message">Please enter a valid email address.</div>
+      </div>
+
+      <div class="form-group" id="groupDob">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob">
+        <div class="error-message">You must be at least 16 years old.</div>
+      </div>
+
+      <button type="submit" class="submit-btn">Register</button>
+      <p id="result"></p>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

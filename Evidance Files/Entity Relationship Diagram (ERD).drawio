@@ -1,0 +1,226 @@
+<mxfile host="Electron">
+  <diagram name="FlyTech Energy Schema" id="KsNofKDMIy2op56yTToX">
+    <mxGraphModel dx="2169" dy="1151" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-1" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="users" vertex="1">
+          <mxGeometry height="210" width="320" x="240" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-2" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  user_id : serial" vertex="1">
+          <mxGeometry height="20" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-3" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="full_name : varchar(255) NOT NULL" vertex="1">
+          <mxGeometry height="20" width="320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-4" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="email : varchar(255) NOT NULL  (UQ)" vertex="1">
+          <mxGeometry height="20" width="320" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-5" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="role_type : varchar(50) NOT NULL" vertex="1">
+          <mxGeometry height="20" width="320" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-6" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=18;fontStyle=2;fontColor=#666666;" value="  CHECK: Prosumer | Consumer | Municipal_Admin" vertex="1">
+          <mxGeometry height="20" width="320" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-7" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="meter_serial_no : varchar(100) NULL  (UQ)" vertex="1">
+          <mxGeometry height="20" width="320" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-8" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="is_active : boolean NOT NULL DEFAULT true" vertex="1">
+          <mxGeometry height="20" width="320" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-9" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="created_at : timestamptz NOT NULL DEFAULT now()" vertex="1">
+          <mxGeometry height="20" width="320" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-10" parent="2-FAqddJnhq0lhBM7ebb-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;fontColor=#666666;" value="Triggers: trg_prevent_user_delete" vertex="1">
+          <mxGeometry height="20" width="320" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-11" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="user_wallets" vertex="1">
+          <mxGeometry height="170" width="320" x="950" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-12" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  wallet_id : serial" vertex="1">
+          <mxGeometry height="20" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-13" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  user_id : integer NOT NULL  (UQ)" vertex="1">
+          <mxGeometry height="20" width="320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-14" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="balance_amount : numeric(12,2) NOT NULL DEFAULT 0.00" vertex="1">
+          <mxGeometry height="20" width="320" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-15" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=18;fontStyle=2;fontColor=#666666;" value="  CHECK: balance_amount &gt;= 0" vertex="1">
+          <mxGeometry height="20" width="320" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-16" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="currency : varchar(10) NOT NULL DEFAULT &#39;USD&#39;" vertex="1">
+          <mxGeometry height="20" width="320" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-17" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="updated_at : timestamptz NOT NULL DEFAULT now()" vertex="1">
+          <mxGeometry height="20" width="320" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-18" parent="2-FAqddJnhq0lhBM7ebb-11" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;fontColor=#666666;" value="Triggers: trg_audit_wallet, trg_wallets_touch" vertex="1">
+          <mxGeometry height="20" width="320" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-19" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" value="energy_listings" vertex="1">
+          <mxGeometry height="210" width="340" x="710" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-20" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  listing_id : serial" vertex="1">
+          <mxGeometry height="20" width="340" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-21" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  prosumer_id : integer NOT NULL" vertex="1">
+          <mxGeometry height="20" width="340" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-22" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="energy_amount_kwh : numeric NOT NULL  (CHECK &gt; 0)" vertex="1">
+          <mxGeometry height="20" width="340" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-23" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="price_per_kwh : numeric NOT NULL  (CHECK &gt; 0)" vertex="1">
+          <mxGeometry height="20" width="340" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-24" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="status : varchar(50) NOT NULL DEFAULT &#39;Available&#39;" vertex="1">
+          <mxGeometry height="20" width="340" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-25" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=18;fontStyle=2;fontColor=#666666;" value="  CHECK: Available | Reserved | Completed | Expired" vertex="1">
+          <mxGeometry height="20" width="340" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-26" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="expires_at : timestamptz NOT NULL" vertex="1">
+          <mxGeometry height="20" width="340" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-27" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="created_at : timestamptz NOT NULL DEFAULT now()" vertex="1">
+          <mxGeometry height="20" width="340" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-28" parent="2-FAqddJnhq0lhBM7ebb-19" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;fontColor=#666666;" value="Trigger: trg_listing_expire_before_update" vertex="1">
+          <mxGeometry height="20" width="340" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-29" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" value="transactions" vertex="1">
+          <mxGeometry height="170" width="360" x="1200" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-30" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  transaction_id : serial" vertex="1">
+          <mxGeometry height="20" width="360" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-31" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  listing_id : integer NOT NULL" vertex="1">
+          <mxGeometry height="20" width="360" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-32" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  consumer_id : integer NOT NULL" vertex="1">
+          <mxGeometry height="20" width="360" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-33" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="kwh_transferred : numeric(10,2) NOT NULL  (CHECK &gt; 0)" vertex="1">
+          <mxGeometry height="20" width="360" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-34" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="total_cost : numeric(10,2) NOT NULL  (CHECK &gt;= 0)" vertex="1">
+          <mxGeometry height="20" width="360" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-35" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="trade_timestamp : timestamptz NOT NULL DEFAULT now()" vertex="1">
+          <mxGeometry height="20" width="360" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-36" parent="2-FAqddJnhq0lhBM7ebb-29" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;fontColor=#666666;" value="Triggers: 5 triggers (audit, autocomplete, wallet, check, self)" vertex="1">
+          <mxGeometry height="20" width="360" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-37" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" value="audit_logs" vertex="1">
+          <mxGeometry height="130" width="320" x="310" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-38" parent="2-FAqddJnhq0lhBM7ebb-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  audit_id : serial" vertex="1">
+          <mxGeometry height="20" width="320" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-39" parent="2-FAqddJnhq0lhBM7ebb-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  user_id : integer NULL  (ON DELETE SET NULL)" vertex="1">
+          <mxGeometry height="20" width="320" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-40" parent="2-FAqddJnhq0lhBM7ebb-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="event_type : varchar(50) NOT NULL" vertex="1">
+          <mxGeometry height="20" width="320" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-41" parent="2-FAqddJnhq0lhBM7ebb-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="log_details : text NOT NULL" vertex="1">
+          <mxGeometry height="20" width="320" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-42" parent="2-FAqddJnhq0lhBM7ebb-37" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="recorded_at : timestamptz NOT NULL DEFAULT now()" vertex="1">
+          <mxGeometry height="20" width="320" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-43" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" value="generation_logs  (PARTITIONED)" vertex="1">
+          <mxGeometry height="150" width="360" x="1130" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-44" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=4;" value="PK  (log_id, recorded_date)  [Composite PK]" vertex="1">
+          <mxGeometry height="20" width="360" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-45" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="FK  user_id : integer NOT NULL" vertex="1">
+          <mxGeometry height="20" width="360" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-46" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="solar_generated_kwh : numeric(10,2) NOT NULL  (&gt;= 0)" vertex="1">
+          <mxGeometry height="20" width="360" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-47" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="battery_storage_level_pct : numeric(5,2) NOT NULL (0-100)" vertex="1">
+          <mxGeometry height="20" width="360" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-48" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="recorded_date : date NOT NULL  [Partition Key]" vertex="1">
+          <mxGeometry height="20" width="360" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-49" parent="2-FAqddJnhq0lhBM7ebb-43" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;fontColor=#666666;" value="Partition by RANGE (recorded_date)" vertex="1">
+          <mxGeometry height="20" width="360" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-50" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" value="generation_logs_2026_10" vertex="1">
+          <mxGeometry height="70" width="280" x="1570" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-51" parent="2-FAqddJnhq0lhBM7ebb-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="Range Partition: 2026-10" vertex="1">
+          <mxGeometry height="20" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-52" parent="2-FAqddJnhq0lhBM7ebb-50" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="PK (log_id, recorded_date), FK user_id" vertex="1">
+          <mxGeometry height="20" width="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-53" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" value="generation_logs_2026_11" vertex="1">
+          <mxGeometry height="70" width="280" x="1570" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-54" parent="2-FAqddJnhq0lhBM7ebb-53" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="Range Partition: 2026-11" vertex="1">
+          <mxGeometry height="20" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-55" parent="2-FAqddJnhq0lhBM7ebb-53" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="PK (log_id, recorded_date), FK user_id" vertex="1">
+          <mxGeometry height="20" width="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-56" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" value="generation_logs_default" vertex="1">
+          <mxGeometry height="70" width="280" x="1570" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-57" parent="2-FAqddJnhq0lhBM7ebb-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;fontStyle=2;" value="Default Partition fallback" vertex="1">
+          <mxGeometry height="20" width="280" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-58" parent="2-FAqddJnhq0lhBM7ebb-56" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;" value="PK (log_id, recorded_date), FK user_id" vertex="1">
+          <mxGeometry height="20" width="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-59" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#6c8ebf;" target="2-FAqddJnhq0lhBM7ebb-11" value="1 : 1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-60" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#82b366;" target="2-FAqddJnhq0lhBM7ebb-19" value="1 : *">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-61" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#d6b656;" target="2-FAqddJnhq0lhBM7ebb-29" value="1 : *">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-62" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#d6b656;" target="2-FAqddJnhq0lhBM7ebb-29" value="1 : * (consumer)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="640" />
+              <mxPoint x="1110" y="640" />
+              <mxPoint x="1110" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-63" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#b85450;" target="2-FAqddJnhq0lhBM7ebb-37" value="1 : *">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-64" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;html=1;endArrow=ERmany;startArrow=ERone;startFill=0;endFill=0;strokeColor=#9673a6;" target="2-FAqddJnhq0lhBM7ebb-43" value="1 : *">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="380" />
+              <mxPoint x="1110" y="380" />
+              <mxPoint x="1110" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-65" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;dashed=1;strokeColor=#9673a6;" target="2-FAqddJnhq0lhBM7ebb-50" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-66" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;dashed=1;strokeColor=#9673a6;" target="2-FAqddJnhq0lhBM7ebb-53" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-67" edge="1" parent="1" source="2-FAqddJnhq0lhBM7ebb-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;dashed=1;strokeColor=#9673a6;" target="2-FAqddJnhq0lhBM7ebb-56" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2-FAqddJnhq0lhBM7ebb-68" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Database Functions &amp; Triggers Reference[cite: 1]&#xa;──────────────────────────────────────────────&#xa;• fn_audit_transaction() → AFTER INSERT ON transactions[cite: 1]&#xa;• fn_audit_wallet_change() → AFTER UPDATE ON user_wallets[cite: 1]&#xa;• fn_check_listing_available() → BEFORE INSERT ON transactions (Locks row FOR UPDATE, checks status)[cite: 1]&#xa;• fn_listing_complete_on_txn() → AFTER INSERT ON transactions (Sets status to &#39;Completed&#39;)[cite: 1]&#xa;• fn_listing_expire_check() → BEFORE UPDATE ON energy_listings (Sets status to &#39;Expired&#39; if past expires_at)[cite: 1]&#xa;• fn_no_self_purchase() → BEFORE INSERT ON transactions (Blocks prosumers from buying their own listing)[cite: 1]&#xa;• fn_prevent_user_delete_with_active_listings() → BEFORE DELETE ON users (Blocks delete if active/reserved listings exist)[cite: 1]&#xa;• fn_touch_updated_at() → BEFORE UPDATE ON user_wallets (Updates updated_at timestamp)[cite: 1]&#xa;• fn_transaction_wallet_update() → AFTER INSERT ON transactions (Atomic buyer-to-seller balance deduction &amp; addition)[cite: 1]&#xa;• fn_wallet_topup(p_user_id, p_amount) → RPC Procedure (Adds funds safely with validation)[cite: 1]&#xa;• fn_wallet_withdraw(p_user_id, p_amount) → RPC Procedure (Deducts funds if sufficient balance exists)[cite: 1]" vertex="1">
+          <mxGeometry height="240" width="760" x="310" y="910" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

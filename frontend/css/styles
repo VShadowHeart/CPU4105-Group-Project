@@ -1,0 +1,78 @@
+/* css/styles.css */
+
+:root {
+    --bg-dark: #050b14;
+    --bg-card: #0f1926;
+    --fly-teal: #10b981;
+    --fly-teal-dark: #0ea371;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background-color: var(--bg-dark) !important;
+    background-image: radial-gradient(circle at 50% 10%, #0c3330 0%, #050b14 70%) !important;
+    color: #e2e8f0 !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Header Navbar */
+header {
+    background-color: rgba(15, 25, 38, 0.95) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Reusable Glass Cards */
+.glass-card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Inputs & Form Controls */
+input, select {
+    background-color: rgba(5, 11, 20, 0.6) !important;
+    border: 1px solid var(--border-color) !important;
+    color: #ffffff !important;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--fly-teal) !important;
+    color: #050b14 !important;
+    font-weight: 700 !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--fly-teal-dark) !important;
+}
+
+.btn-outline {
+    border: 1px solid var(--fly-teal) !important;
+    color: var(--fly-teal) !important;
+    border-radius: 8px;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+/* Tables */
+table th {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: #94a3b8 !important;
+}
+
+table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}

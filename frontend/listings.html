@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlyTech Listings</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo"><a href="../Home.html"><img src="../image/Logo.png" width="55
+		" height="40
+		
+	  " alt=""/></a><span></span> FlyTech P2P Energy</div>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Marketplace</a>
+    <a href="my-energy.html">My Energy</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="community.html">Community</a>
+    <a href="listings.html" class="active">Listings</a>
+    <div class="nav-links-badge">
+      <div class="avatar" id="userAvatarMobile">?</div>
+      <div style="font-weight:500;font-size:.95rem;" id="userNameMobile">Loading…</div>
+    </div>
+  </div>
+  <div class="user-switcher" id="userSwitcher">
+    <button class="user-badge" id="userBadgeBtn" aria-haspopup="listbox" aria-expanded="false">
+      <div class="avatar" id="userAvatar">?</div>
+      <div class="user-badge-name" id="userName">Loading…</div>
+      <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="user-menu" id="userMenu" role="listbox">
+      <div class="user-menu-loading">Loading users…</div>
+    </div>
+  </div>
+</div>
+
+<h2 style="margin-bottom:24px;">My Listings</h2>
+
+<div class="listing-grid">
+  <div class="explorer-section">
+    <div class="section-header">
+      <h2 style="font-size:1.3rem;">Create new listing</h2>
+    </div>
+    <form id="createListingForm" class="form-grid" onsubmit="createListing(event)">
+      <div class="form-group">
+        <label>Energy amount (kWh)</label>
+        <input type="number" step="0.1" min="0.1" id="amount" required placeholder="e.g. 25.0">
+      </div>
+      <div class="form-group">
+        <label>Price per kWh (&pound;)</label>
+        <input type="number" step="0.01" min="0.01" id="price" required placeholder="e.g. 0.14">
+      </div>
+      <div class="form-group">
+        <label>Expires at</label>
+        <input type="datetime-local" id="expires" required>
+      </div>
+      <button type="submit" class="btn-primary" style="grid-column:1/-1;">Publish listing</button>
+    </form>
+    <div id="formMessage" style="margin-top:12px;font-size:.85rem;"></div>
+  </div>
+
+  <div class="explorer-section">
+    <div class="section-header">
+      <h2 style="font-size:1.3rem;">My active listings</h2>
+      <span class="badge-live" id="activeCount">0 active</span>
+    </div>
+    <div id="myListings" class="my-listings">
+      <div class="loading">Loading listings…</div>
+    </div>
+  </div>
+</div>
+
+<div class="explorer-section" style="margin-top:24px;">
+  <div class="section-header">
+    <h2 style="font-size:1.3rem;">All marketplace listings</h2>
+    <select id="statusFilter" onchange="filterListings()" class="mini-select">
+      <option value="all">All</option>
+      <option value="Available" selected>Available</option>
+      <option value="Reserved">Reserved</option>
+      <option value="Completed">Completed</option>
+      <option value="Expired">Expired</option>
+    </select>
+  </div>
+  <div class="table-container" style="max-height:400px;">
+    <table id="allListingsTable">
+      <thead><tr id="allListingsHeaders"></tr></thead>
+      <tbody id="allListingsBody"></tbody>
+    </table>
+  </div>
+</div>
+	
+	<!-- BINWISE FOOTER ADVERT -->
+<div class="binwise-footer-advert"><p></p><h2 style="font-size:1.3rem;gap:6px;"> &nbsp &nbsp Sponsored By</h2>
+  <div class="binwise-advert-inner">
+    <div class="binwise-advert-icon">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="42" height="42" rx="12" fill="#0B2B30" stroke="#1D454E" stroke-width="1.5"/>
+        <path d="M15 13h14l-1.5 20.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L15 13Z" stroke="#2EC4B6" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M12 13h20" stroke="#2EC4B6" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M18.5 13V10.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V13" stroke="#2EC4B6" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M19.5 19.5v9M24.5 19.5v9" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="binwise-advert-copy">
+      <div class="binwise-advert-eyebrow">♻️ SMART WASTE MANAGEMENT</div>
+      <div class="binwise-advert-headline">
+        Meet <span class="binwise-brand">BinWise</span> the smart bin that pays you back.
+      </div>
+      <div class="binwise-advert-sub">
+        Track your waste, earn recycling rewards, and keep your community clean all from one app. Join the waitlist for early access.
+      </div>
+    </div>
+
+    <div class="binwise-advert-actions">
+      <a href="#binwise-signup" class="binwise-cta-primary" onclick="return false;">
+        Join the waitlist
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#binwise-learn" class="binwise-cta-secondary" onclick="return false;">
+        Learn more
+      </a>
+      <div class="binwise-advert-trust">🌱 2,400+ homes already on board</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .binwise-footer-advert {
+    margin: 40px 24px 28px;
+    border-radius: 24px;
+    background:
+      radial-gradient(120% 180% at 0% 0%, rgba(46, 196, 182, 0.14) 0%, transparent 55%),
+      radial-gradient(120% 180% at 100% 100%, rgba(46, 196, 182, 0.08) 0%, transparent 50%),
+      #0B2327;
+    border: 1px solid #1D454E;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    position: relative;
+  }
+  .binwise-footer-advert::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2EC4B6 30%, #2EC4B6 70%, transparent);
+    opacity: 0.7;
+  }
+  .binwise-advert-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 26px 32px;
+    flex-wrap: wrap;
+  }
+  .binwise-advert-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 12px rgba(46, 196, 182, 0.25));
+  }
+  .binwise-advert-copy {
+    flex: 1 1 320px;
+    min-width: 240px;
+  }
+  .binwise-advert-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #2EC4B6;
+    margin-bottom: 6px;
+  }
+  .binwise-advert-headline {
+    font-size: 1.18rem;
+    font-weight: 650;
+    color: #E6F4F1;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .binwise-brand {
+    color: #2EC4B6;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .binwise-advert-sub {
+    font-size: 0.86rem;
+    color: #7BA7B3;
+    line-height: 1.5;
+    max-width: 520px;
+  }
+  .binwise-advert-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 190px;
+  }
+  .binwise-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #2EC4B6;
+    color: #052024;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 6px 18px rgba(46, 196, 182, 0.35);
+    white-space: nowrap;
+  }
+  .binwise-cta-primary:hover {
+    background: #3FD9CB;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(46, 196, 182, 0.45);
+  }
+  .binwise-cta-primary:active { transform: translateY(0); }
+  .binwise-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 1px solid #2A5A64;
+    color: #9BC7D1;
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+  .binwise-cta-secondary:hover {
+    border-color: #2EC4B6;
+    color: #2EC4B6;
+    background: rgba(46, 196, 182, 0.06);
+  }
+  .binwise-advert-trust {
+    text-align: center;
+    font-size: 0.72rem;
+    color: #5F8F9C;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 720px) {
+    .binwise-footer-advert { margin: 32px 14px 22px; }
+    .binwise-advert-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 24px 22px;
+    }
+    .binwise-advert-actions { width: 100%; min-width: 0; }
+    .binwise-cta-primary,
+    .binwise-cta-secondary { width: 100%; }
+    .binwise-advert-headline { font-size: 1.05rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .binwise-cta-primary,
+    .binwise-cta-secondary { transition: none; }
+  }
+</style>
+
+<script src="js/db.js"></script>
+<script src="js/user-switcher.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/listings.js"></script>
+</body>
+</html>

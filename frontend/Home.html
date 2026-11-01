@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlyTech ⚡ Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">
+    <img src="../image/Logo.png" width="55" height="40" alt="FlyTech logo">
+    <span></span> FlyTech P2P Energy
+  </div>
+
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Marketplace</a>
+    <a href="my-energy.html">My Energy</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="community.html">Community</a>
+    <a href="listings.html">Listings</a>
+
+    <!-- Mobile-only user badge inside the dropdown -->
+    <div class="nav-links-badge">
+      <div class="avatar" id="userAvatarMobile">?</div>
+      <div style="font-weight:500;font-size:.95rem;" id="userNameMobile">Log in</div>
+    </div>
+  </div>
+
+  <!-- LOGIN / ACCOUNT -->
+  <div class="auth-area" id="authArea">
+    <a href="login.html" class="login-btn" id="loginBtn">Log in</a>
+
+    <div class="user-badge" id="userBadge" style="display:none;" aria-haspopup="true" aria-expanded="false">
+      <div class="avatar" id="userAvatar">?</div>
+      <div class="user-badge-name" id="userName">—</div>
+      <button class="logout-btn" id="logoutBtn" title="Log out" aria-label="Log out">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M5 2H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2M9.5 9.5 12 7 9.5 4.5M12 7H5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="explorer-section" style="margin-bottom:24px;overflow:hidden;padding:0;">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:24px;padding:28px 24px;">
+    <div style="flex:1;min-width:260px;">
+      <h1 style="font-size:2rem;font-weight:800;line-height:1.15;color:#fff;margin-bottom:14px;">
+        P2P Local Green<br>Energy Platform
+      </h1>
+      <p style="color:#aac9d2;font-size:.9rem;line-height:1.6;margin-bottom:18px;">
+        Peer-to-Peer Green Energy Sharing for Sustainable Cities (SDG 7 &amp; 11).
+      </p>
+      <a href="index.html" class="btn-primary" style="display:inline-block;width:auto;padding:10px 22px;font-size:.9rem;">
+        Go to marketplace
+      </a>
+    </div>
+    <div style="flex:1;min-width:260px;">
+      <img src="../image/Home_Page_Animated.gif" alt="FlyTech P2P energy animation"
+           style="width:100%;height:auto;border-radius:16px;display:block;">
+    </div>
+  </div>
+</div>
+
+<!-- QUICK STATS -->
+<div class="kpi-grid" style="margin-bottom:24px;">
+  <div class="kpi-card">
+    <div class="kpi-label">Total solar generated</div>
+    <div class="kpi-value" id="homeTotalSolar">— <small>kWh</small></div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Active listings</div>
+    <div class="kpi-value" id="homeActiveListings">—</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Grid carbon offset</div>
+    <div class="kpi-value" id="homeCarbonOffset">— <small>tons CO₂</small></div>
+  </div>
+</div>
+
+<!-- BINWISE FOOTER ADVERT -->
+<div class="binwise-footer-advert"><p></p><h2 style="font-size:1.3rem;gap:6px;"> &nbsp &nbsp Sponsored By</h2>
+  <div class="binwise-advert-inner">
+    <div class="binwise-advert-icon">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="42" height="42" rx="12" fill="#0B2B30" stroke="#1D454E" stroke-width="1.5"/>
+        <path d="M15 13h14l-1.5 20.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L15 13Z" stroke="#2EC4B6" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M12 13h20" stroke="#2EC4B6" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M18.5 13V10.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5V13" stroke="#2EC4B6" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M19.5 19.5v9M24.5 19.5v9" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <div class="binwise-advert-copy">
+      <div class="binwise-advert-eyebrow">♻️ SMART WASTE MANAGEMENT</div>
+      <div class="binwise-advert-headline">
+        Meet <span class="binwise-brand">BinWise</span> the smart bin that pays you back.
+      </div>
+      <div class="binwise-advert-sub">
+        Track your waste, earn recycling rewards, and keep your community clean all from one app. Join the waitlist for early access.
+      </div>
+    </div>
+
+    <div class="binwise-advert-actions">
+      <a href="#binwise-signup" class="binwise-cta-primary" onclick="return false;">
+        Join the waitlist
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#binwise-learn" class="binwise-cta-secondary" onclick="return false;">
+        Learn more
+      </a>
+      <div class="binwise-advert-trust">🌱 2,400+ homes already on board</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ---- Navbar layout (force match index.html) ---- */
+  .navbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+    gap: 16px;
+  }
+  .navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    flex: 0 0 auto;
+    order: 0;
+  }
+  .navbar .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    order: 1;
+  }
+  .navbar .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #9BC7D1;
+    border-radius: 2px;
+  }
+  .navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    order: 2;
+    margin-left: 24px !important;
+    margin-right: 0 !important;
+  }
+  .navbar .nav-links a {
+    color: #9BC7D1;
+    text-decoration: none;
+    font-size: .9rem;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .navbar .nav-links a:hover { color: #2EC4B6; }
+  .navbar .nav-links a.active {
+    color: #2EC4B6;
+    border-bottom-color: #2EC4B6;
+  }
+  .nav-links-badge {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 4px 0;
+    border-top: 1px solid #1D454E;
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  /* Auth area pinned to the right */
+  .auth-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto !important;
+    margin-right: 0;
+    flex: 0 0 auto;
+    order: 3;
+  }
+  .login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 22px;
+    border-radius: 999px;
+    background: #2EC4B6;
+    color: #052024;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    box-shadow: 0 6px 18px rgba(46, 196, 182, 0.35);
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+  .login-btn:hover {
+    background: #3FD9CB;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(46, 196, 182, 0.45);
+  }
+  .login-btn:active { transform: translateY(0); }
+
+  .user-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 8px 6px 6px;
+    border-radius: 999px;
+    background: #102328;
+    border: 1px solid #1D454E;
+  }
+  .user-badge .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #2EC4B6;
+    color: #052024;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .user-badge-name {
+    color: #E6F4F1;
+    font-size: 0.88rem;
+    font-weight: 600;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .logout-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #7BA7B3;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .logout-btn:hover {
+    background: rgba(46, 196, 182, 0.12);
+    color: #2EC4B6;
+  }
+
+  /* Mobile dropdown */
+  @media (max-width: 860px) {
+    .navbar .nav-toggle { display: flex; margin-left: auto; }
+    .navbar .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      order: 4;
+      margin: 8px 0 0 !important;
+      gap: 12px;
+      padding: 14px 4px 6px;
+      border-top: 1px solid #1D454E;
+    }
+    .navbar .nav-links.open { display: flex; }
+    .navbar .nav-links a { padding: 8px 0; font-size: .95rem; width: 100%; }
+    .nav-links-badge { display: flex; }
+    .auth-area { display: none; }
+  }
+
+  /* ---- BinWise footer advert ---- */
+  .binwise-footer-advert {
+    margin: 40px 24px 28px;
+    border-radius: 24px;
+    background:
+      radial-gradient(120% 180% at 0% 0%, rgba(46, 196, 182, 0.14) 0%, transparent 55%),
+      radial-gradient(120% 180% at 100% 100%, rgba(46, 196, 182, 0.08) 0%, transparent 50%),
+      #0B2327;
+    border: 1px solid #1D454E;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    position: relative;
+  }
+  .binwise-footer-advert::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2EC4B6 30%, #2EC4B6 70%, transparent);
+    opacity: 0.7;
+  }
+  .binwise-advert-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 26px 32px;
+    flex-wrap: wrap;
+  }
+  .binwise-advert-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 12px rgba(46, 196, 182, 0.25));
+  }
+  .binwise-advert-copy {
+    flex: 1 1 320px;
+    min-width: 240px;
+  }
+  .binwise-advert-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #2EC4B6;
+    margin-bottom: 6px;
+  }
+  .binwise-advert-headline {
+    font-size: 1.18rem;
+    font-weight: 650;
+    color: #E6F4F1;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .binwise-brand {
+    color: #2EC4B6;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .binwise-advert-sub {
+    font-size: 0.86rem;
+    color: #7BA7B3;
+    line-height: 1.5;
+    max-width: 520px;
+  }
+  .binwise-advert-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 190px;
+  }
+  .binwise-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #2EC4B6;
+    color: #052024;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 6px 18px rgba(46, 196, 182, 0.35);
+    white-space: nowrap;
+  }
+  .binwise-cta-primary:hover {
+    background: #3FD9CB;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(46, 196, 182, 0.45);
+  }
+  .binwise-cta-primary:active { transform: translateY(0); }
+  .binwise-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 1px solid #2A5A64;
+    color: #9BC7D1;
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+  .binwise-cta-secondary:hover {
+    border-color: #2EC4B6;
+    color: #2EC4B6;
+    background: rgba(46, 196, 182, 0.06);
+  }
+  .binwise-advert-trust {
+    text-align: center;
+    font-size: 0.72rem;
+    color: #5F8F9C;
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 720px) {
+    .binwise-footer-advert { margin: 32px 14px 22px; }
+    .binwise-advert-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 24px 22px;
+    }
+    .binwise-advert-actions { width: 100%; min-width: 0; }
+    .binwise-cta-primary,
+    .binwise-cta-secondary { width: 100%; }
+    .binwise-advert-headline { font-size: 1.05rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .binwise-cta-primary,
+    .binwise-cta-secondary { transition: none; }
+  }
+</style>
+
+<script src="js/db.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/home.js"></script>
+<script>
+  // Minimal auth handling — swaps Login button for user badge when logged in
+  (function () {
+    const loginBtn   = document.getElementById('loginBtn');
+    const userBadge  = document.getElementById('userBadge');
+    const userAvatar = document.getElementById('userAvatar');
+    const userName   = document.getElementById('userName');
+    const logoutBtn  = document.getElementById('logoutBtn');
+
+    const mAvatar = document.getElementById('userAvatarMobile');
+    const mName   = document.getElementById('userNameMobile');
+
+    function render(user) {
+      const display = user ? (user.name || user.email || 'User') : null;
+      if (user) {
+        loginBtn.style.display  = 'none';
+        userBadge.style.display = 'flex';
+        userName.textContent    = display;
+        userAvatar.textContent  = display.charAt(0).toUpperCase();
+        mName.textContent       = display;
+        mAvatar.textContent     = display.charAt(0).toUpperCase();
+      } else {
+        loginBtn.style.display  = '';
+        userBadge.style.display = 'none';
+        mName.textContent       = 'Log in';
+        mAvatar.textContent     = '?';
+      }
+    }
+
+    let currentUser = null;
+    try { currentUser = JSON.parse(localStorage.getItem('flytechUser') || 'null'); }
+    catch (_) { currentUser = null; }
+    render(currentUser);
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('flytechUser');
+        render(null);
+      });
+    }
+  })();
+</script>
+</body>
+</html></style>
+<script src="js/user-switcher.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html><script src="js/user-switcher.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/community.js"></script>
+</body>
+</html>
